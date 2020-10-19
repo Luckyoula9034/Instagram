@@ -9,6 +9,6 @@ class post(models.Model):
     caption = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
-    def __str__(self):
+    def __str__(self):   # def __str__(self):  returns a string representaion of the object"
        
         return self.caption
