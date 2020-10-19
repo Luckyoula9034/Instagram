@@ -1,10 +1,10 @@
 from django.urls import path,include
 from .views import (
-    PostListviews
+    PostListview
 )
 
 app_name = 'insta'
 
 urlpatterns = [
-    path('',PostListviews.as_views(), name='post_list'),
+    path('',PostListview.as_view(), name='post_list'),
 ]
