@@ -33,8 +33,18 @@ header{
     padding-left: 10px;
 }
 
-.vi{
+.vl{
     border-left:1.5px solid #111;
     height:30px;
     margin-left: 20px;
+}
+.contact_icons{
+    display: flex;
+    justify-content:flex-end;
+    width: 30%;
+    padding-left: 100px;
+}
+
+.contact_icons a{
+    
 }
