@@ -1,0 +1,40 @@
+body{
+    background-color: white;
+}
+
+header{
+    background-color: #FAFAFA;
+    border-bottom: 1px solid #ccc;
+    position: fixed;
+    left:0;
+    top:0;
+    width:100%;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    padding: 26px 20px;
+    flex-wrap:wrap;
+}
+.navigation a{
+    color: black;
+}
+.instalogo{
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-start;
+    width:30%;
+}
+.instalogo a{
+    font-size:25px;
+    padding-left: 10px;
+}
+
+.vi{
+    border-left:1.5px solid #111;
+    height:30px;
+    margin-left: 20px;
+}
