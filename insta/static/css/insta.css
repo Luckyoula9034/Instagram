@@ -65,4 +65,13 @@ header{
 .search_bar a{
     font-size: 25px;
     padding: left 15px;
+
+}
+.content_container{
+    background-color: white;
+    padding-top: 50px;
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    left:0px;
 }
