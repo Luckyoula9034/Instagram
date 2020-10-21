@@ -1,1 +1,1 @@
-web: gunicon instagram.wsgi
+web: gunicon insta.wsgi
