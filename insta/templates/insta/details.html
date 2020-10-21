@@ -1,0 +1,51 @@
+{% extends 'insta/base.html' %}
+{%block title%} Instagram {% endblock %}
+
+{% block content %}
+<div class="detail_card">
+    <div class="detail_image">
+        <img src="{{post.image.url }}" alt="">
+    </div>
+    <div class="post_detail_info">
+        <div class="card_header">
+            <div class="profile_image">
+                
+            </div>
+            <div class="post_info">
+                <div class="post_name"><a href="">{{ post.author }}</a></div>
+                <div class="post_location">Nairobi</div>
+            </div>
+            <div class="post_options"><a href=""><i class="fas fa-ellipsis-h"></i></a></div>
+        </div>
+        <!-- <ul>
+            <li class="side_header">
+                <div>
+
+                </div>
+            </li>
+        </ul> -->
+        <div class="detail_bottom">
+            <div class="engagement">
+                <a href="{% url 'insta:like_toggle' post.id %}"><i class="fas fa-heart"></i></a>
+                <a href="{% url 'insta:post_detail' post.id %}"><i class="far fa-comment"></i></a>
+                <a href=""><i class="far fa-share-square"></i></a>
+                <a href="" class="fa-bookmarks"><i class="far fa-bookmark"></i></a>
+            </div>
+            <div class="likes">
+                <a href="#">{{ post.likes.count }} likes</a>
+            </div>
+            <div class="time_posted">
+                {{post.created_date | timesince}} ago
+            </div>
+            <div class="new_comment_section">
+                <form action="">
+                    <textarea name="" id="" class="text_comment_area" placeholder="Add a comment..." cols="30" rows="10"></textarea>
+                    
+                    <button type="submit">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

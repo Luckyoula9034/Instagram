@@ -1,0 +1,58 @@
+{% extends 'insta/base.html' %}
+{%block title%} instagram {% endblock %}
+
+{% block content %}
+{% for post in posts %}
+    <div class="card">
+        <div class="card_header">
+            <div class="profile_image">
+                <img src="{{ post.author.profile.profile_photo.url }}" alt="">
+                
+            </div>
+            <div class="post_info">
+                <div class="post_name"><a href="{% url 'user_profile' post.author.username %}">{{ post.author }}</a></div>
+                <div class="post_location">Nairobi</div>
+            </div>
+        
+            <div class="post_options"> <button data-toggle="modal" data-target="#menu_modal" ><a ><i class="fas fa-ellipsis-h"></i></a></button></div>
+        </div>
+        
+        <div class="modal" id="menu_modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <ul class='list-unstyled menu'>
+                        <li><a class="text-reset" href="{% url 'insta:post_update' post.id %}">Edit</a></li>
+                        <li><a class="text-reset" href="{% url 'insta:post_delete' post.id %}">Delete</a></li>
+                        <li><a class="text-reset" href="{% url 'insta:post_detail' post.id %}">Details</a></li>
+                        <li><a class="text-reset close" data-dismiss="modal" href="">Cancel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="post_image">
+            {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="Photo">
+            {% endif %}
+        </div>
+        <div class="engagement">
+            <a href="{% url 'insta:like_toggle' post.id %}" class="like-btn" data-href="{% url 'insta:like_api_toggle' post.id %}"  data-likes={{post.likes.count}} ><i class="fas fa-heart"></i></a>
+            <a href="{% url 'insta:post_detail' post.id %}"><i class="far fa-comment"></i></a>
+            <a href=""><i class="far fa-share-square"></i></a>
+            <a href="" class="fa-bookmarks"><i class="far fa-bookmark"></i></a>
+        </div>
+        <div class="likes">
+          <a href="#" class="likes_count">{{ post.likes.count }} likes</a>
+        </div>
+        <div class="caption">
+            <span><p><a href="{% url 'user_profile' post.author.username %}">{{ post.author }}</a>{{ post.caption | linebreaksbr | truncatechars:60 }}</p></span>
+        </div>
+
+        <div class="time_posted">
+            {{post.created_date | timesince}} ago
+        </div>
+
+    </div>
+    {% include "insta/menu_modal.html" %}
+{% endfor %}
+{% endblock %}
