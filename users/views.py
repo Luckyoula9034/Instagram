@@ -15,13 +15,13 @@ from rest_framework import authentication, permissions
 
 def register(request):
     if request.method == 'POST':
-        print("This shit is working bro.")
+        
         form = UserRegisterForm(request.POST)
         # username = form.cleaned_data.get('username')
         # print(username,"This shit is working")
         # return redirect('/')
         if form.is_valid():
-            form.save()
+            
             username = form.cleaned_data.get('username')
             print(username,"This shit is working")
             messages.success(request, f'Account created for {username} successfully!')
