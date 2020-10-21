@@ -37,6 +37,7 @@
 - HTML
 - Django (Python framework)
 - HTML for the mark up pages
+-javascript
 - CSS for stylying
 
 # Requirements.txt
